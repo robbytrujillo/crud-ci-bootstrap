@@ -11,4 +11,9 @@ class M_siswa extends CI_Model {
         $this->db->order_by('id_siswa', 'DESC');
         return $this->db->get();
     }
+
+    public function simpan_siswa($data) {
+        // insert data
+        return $this->db->insert("tbl_siswa", $data);
+    }
 }
