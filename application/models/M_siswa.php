@@ -24,7 +24,12 @@ class M_siswa extends CI_Model {
     }
 
     public function update_siswa($data, $id_siswa) {
-        // update data
+        // update siswa
         return $this->db->update("tbl_siswa", $data, $id_siswa);
+    }
+
+    public function hapus_siswa($id) {
+        // hapus siswa
+        return $this->db->delete("tbl_siswa", $id);
     }
 }
