@@ -73,7 +73,7 @@ class Siswa extends CI_Controller {
         $data = array(
             'nisn' => $nisn,
             'nama_lengkap' => $nama_lengkap,
-            'alamat' => $alamat;
+            'alamat' => $alamat,
         );
 
         // update via model
