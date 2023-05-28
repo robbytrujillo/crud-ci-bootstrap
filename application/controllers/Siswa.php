@@ -88,10 +88,10 @@ class Siswa extends CI_Controller {
         $this->load->model('m_siswa');
 
         // get ID dari URL segment ke 3
-        $id_siswa = $this->uri->segment(3);
+        $id['id_siswa'] = $this->uri->segment(3);
 
         // delete via model
-        $this->m_siswa->hapus_siswa($id_siswa);
+        $this->m_siswa->hapus_siswa($id);
 
         // redirect ke controller siswa
         redirect('siswa');
