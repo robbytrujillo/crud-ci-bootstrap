@@ -16,4 +16,15 @@ class M_siswa extends CI_Model {
         // insert data
         return $this->db->insert("tbl_siswa", $data);
     }
+
+    public function edit_siswa($id_siswa) {
+        // edity data
+        $query = $this->db->where("id_siswa", $id_siswa)->get("tbl_siswa");
+        return $query->row();
+    }
+
+    public function update_siswa($data, $id_siswa) {
+        // update data
+        return $this->db->update("tbl_siswa", $data, $id_siswa);
+    }
 }
