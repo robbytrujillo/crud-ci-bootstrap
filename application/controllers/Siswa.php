@@ -44,4 +44,44 @@ class Siswa extends CI_Controller {
         redirect('siswa');
 
     }
+
+    public function edit($id_siswa) {
+        // load model
+        $this->load->model('m_siswa');
+
+        // get ID dari URL segment ke 3
+        $id_siswa = $this->uri->segment(3);
+
+        $data = array(
+            'data_siswa' => $this->m_siswa->edit_siswa($id_siswa)
+        );
+
+        // load view
+        $this->load->view('edit_siswa', $data);
+    }
+
+    public function update() {
+        // load model
+        $this->load->model('m_siswa');
+    
+        // get data dari form
+        $id_siswa['id_siswa'] = $this->input->post("id_siswa");
+        $nisn = $this->input->post("nisn");
+        $nama_lengkap = $this->input->post("nama_lengkap");
+        $alamat = $this->input->post("alamat");
+
+        $data = array(
+            'nisn' => $nisn,
+            'nama_lengkap' => $nama_lengkap,
+            'alamat' => $alamat;
+        );
+
+        // update via model
+        $this->m_siswa->update_siswa($data, $id_siswa);
+
+        // redirect ke controller siswa
+        redirect('siswa');
+    }
+
+
 }
